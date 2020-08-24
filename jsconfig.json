@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "jsx": "react",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@assets/*": ["./src/assets/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
