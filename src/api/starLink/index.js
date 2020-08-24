@@ -1,9 +1,5 @@
-import allStarlinkSats from './allStarLinkSats'
-import oneStarlinkSat from './onestarLinkSat'
-import queryStarlinkSats from './queryStarlinkSats'
+import allStarlinkSats from "./allStarLinkSats";
+import oneStarlinkSat from "./onestarLinkSat";
+import queryStarlinkSats from "./queryStarlinkSats";
 
-export default {
-    allStarlinkSats,
-    oneStarlinkSat,
-    queryStarlinkSats
-}
+export { allStarlinkSats, oneStarlinkSat, queryStarlinkSats };
