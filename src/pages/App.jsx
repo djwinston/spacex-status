@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { companyInfo } from "../api/companyInfo";
 import { nextLaunch } from "../api/launches";
+import CompanyInfoTable from "../components/companyInfoTable";
 import NextLaunchTable from "../components/nextLaunchTable";
 
 const App = () => {
@@ -18,8 +19,6 @@ const App = () => {
       .catch((error) => error);
   }, []);
 
-  console.log(`TCL>>>: App -> companyData>>>>`, companyData.links);
-  // console.log(`TCL>>>: App -> nextLaunchData`, nextLaunchData);
   const loading = () =>
     !companyData.links && !companyData.headquarters ? "is-active" : "";
   return (
@@ -27,94 +26,29 @@ const App = () => {
       <div className={`pageloader is-bottom-to-top ${loading()}`}>
         <span className="title">Loading...</span>
       </div>
+      <div class="dashboard is-full-height">
+        <div class="dashboard-panel is-one-quarter"></div>
+
+        <div class="dashboard-main is-scrollable">
+          <nav class="navbar is-fixed-top">
+            <div class="navbar-brand">
+              <span class="navbar-item">Bulma Dashbaord</span>
+            </div>
+          </nav>
+
+          <section class="section">
+            <p class="title">Main</p>
+            <p>main content</p>
+          </section>
+
+          <footer class="footer">footer</footer>
+        </div>
+
+        <div class="dashboard-panel is-small">right panel</div>
+      </div>
       <div className="App container">
         <header>
-          <table className="table is-striped is-hoverable">
-            <tbody>
-              <tr>
-                <th>Name</th>
-                <td>{companyData.name}</td>
-              </tr>
-              <tr>
-                <th>Founder</th>
-                <td>{companyData.founder}</td>
-              </tr>
-              <tr>
-                <th>Founded</th>
-                <td>{companyData.founded}</td>
-              </tr>
-              <tr>
-                <th>Employees</th>
-                <td>{companyData.employees}+</td>
-              </tr>
-              <tr>
-                <th>Address</th>
-                <td>
-                  {companyData.headquarters
-                    ? companyData.headquarters.address
-                    : ""}
-                </td>
-              </tr>
-              <tr>
-                <th>City</th>
-                <td>
-                  {companyData.headquarters
-                    ? companyData.headquarters.city
-                    : ""}
-                </td>
-              </tr>
-              <tr>
-                <th>State</th>
-                <td>
-                  {companyData.headquarters
-                    ? companyData.headquarters.state
-                    : ""}
-                </td>
-              </tr>
-              <tr className="is-selected">
-                <th>Summary</th>
-                <td>{companyData.summary}</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>Elon Twitter</th>
-                <td>
-                  <a
-                    href={
-                      companyData.links ? companyData.links.elon_twitter : ""
-                    }
-                  >
-                    {companyData.links ? companyData.links.elon_twitter : ""}
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>Flickr</th>
-                <td>
-                  <a href={companyData.links ? companyData.links.flickr : ""}>
-                    {companyData.links ? companyData.links.flickr : ""}
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>Twitter</th>
-                <td>
-                  <a href={companyData.links ? companyData.links.twitter : ""}>
-                    {companyData.links ? companyData.links.twitter : ""}
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>WebSite</th>
-                <td>
-                  <a href={companyData.links ? companyData.links.website : ""}>
-                    {companyData.links ? companyData.links.website : ""}
-                  </a>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
+          <CompanyInfoTable data={companyData} />
         </header>
       </div>
       <NextLaunchTable data={nextLaunchData} />

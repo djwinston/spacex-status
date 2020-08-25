@@ -16,6 +16,7 @@ $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: $purple;
 $link: $pink;
+$body-font-size: 0.7em;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
@@ -37,5 +38,5 @@ $input-shadow: none;
 @import "bulma/sass/layout/hero.sass";
 @import "bulma/sass/layout/section.sass";
 //extensions
-// @import "../../../node_modules/bulma-pageloader/dist/css/bulma-pageloader.sass";
 @import "bulma-pageloader";
+@import "bulma-dashboard/src/bulma-dashboard";
