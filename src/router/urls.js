@@ -1,31 +1,37 @@
 import React from "react";
-import Default from "../components/default";
-import CompanyInfoTable from "../components/companyInfoTable";
-import NextLaunchTable from "../components/nextLaunchTable";
+import { v4 as uuidv4 } from "uuid";
+import Default from "../components/tables/default";
+import CompanyInfoTable from "../components/tables/companyInfoTable";
+import NextLaunchTable from "../components/tables/nextLaunchTable";
 
-export const HOME_URL = "/";
-export const COMPANY_URL = "/company";
-export const NEXT_LAUNCH_URL = "/next-launch";
+const HOME = "Home";
+const COMPANY = "Company";
+const NEXT_LAUNCH = "Next Launch";
 
 export const routes = [
   {
     path: "/",
     exact: true,
-    name: "Home",
-
-    // sidebar: () => <div>home!</div>,
-    component: () => <Default />,
+    name: HOME,
+    id: uuidv4(),
+    title: () => <p className="title"></p>,
+    sidebar: () => <div>{HOME}</div>,
+    component: (props) => <Default props={props} />,
   },
   {
     path: "/company",
-    name: "Company",
-    // sidebar: () => <div>bubblegum!</div>,
-    component: (data) => <CompanyInfoTable data={data} />,
+    name: COMPANY,
+    id: uuidv4(),
+    title: () => <p className="title">{COMPANY}</p>,
+    sidebar: () => <div>{COMPANY}</div>,
+    component: (props) => <CompanyInfoTable props={props} />,
   },
   {
     path: "/next-launch",
-    name: "Next Launch",
-    // sidebar: () => <div>shoelaces!</div>,
-    component: (data) => <NextLaunchTable data={data} />,
+    name: NEXT_LAUNCH,
+    id: uuidv4(),
+    title: () => <p className="title">{NEXT_LAUNCH}</p>,
+    sidebar: () => <div>{NEXT_LAUNCH}</div>,
+    component: (props) => <NextLaunchTable props={props} />,
   },
 ];

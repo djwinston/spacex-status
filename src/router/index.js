@@ -1,17 +1,50 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { HOME_URL, COMPANY_URL, NEXT_LAUNCH_URL, routes } from "./urls";
+import { routes } from "./urls";
 
-import Default from "../components/default";
-import CompanyInfoTable from "../components/companyInfoTable";
-import NextLaunchTable from "../components/nextLaunchTable";
+const AppRouter = () => {
+  return (
+    <Switch>
+      {routes.map((route) => (
+        <Route
+          exact={!!route.exact}
+          path={route.path}
+          component={route.component}
+          key={route.id}
+        ></Route>
+      ))}
+    </Switch>
+  );
+};
 
-const AppRouter = () => (
-  <Switch>
-    <Route exact path={HOME_URL} component={Default} />
-    <Route exact path={COMPANY_URL} component={CompanyInfoTable} />
-    <Route exact path={NEXT_LAUNCH_URL} component={NextLaunchTable} />
-  </Switch>
-);
+export const SideBarRouter = () => {
+  return (
+    <Switch>
+      {routes.map((route) => (
+        <Route
+          exact={!!route.exact}
+          path={route.path}
+          component={route.sidebar}
+          key={route.id}
+        ></Route>
+      ))}
+    </Switch>
+  );
+};
+
+export const TitleRouter = () => {
+  return (
+    <Switch>
+      {routes.map((route) => (
+        <Route
+          exact={!!route.exact}
+          path={route.path}
+          component={route.title}
+          key={route.id}
+        ></Route>
+      ))}
+    </Switch>
+  );
+};
 
 export default AppRouter;
