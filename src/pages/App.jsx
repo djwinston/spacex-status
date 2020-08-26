@@ -3,6 +3,7 @@ import { companyInfo } from "../api/companyInfo";
 import { nextLaunch } from "../api/launches";
 import CompanyInfoTable from "../components/companyInfoTable";
 import NextLaunchTable from "../components/nextLaunchTable";
+import NavBar from "../components/navBar";
 
 const App = () => {
   const [companyData, setCompanyData] = useState({});
@@ -27,7 +28,9 @@ const App = () => {
         <span className="title">Loading...</span>
       </div>
       <div class="dashboard is-full-height">
-        <div class="dashboard-panel is-one-quarter"></div>
+        <div class="dashboard-panel is-one-quarter">
+          <NavBar />
+        </div>
 
         <div class="dashboard-main is-scrollable">
           <nav class="navbar is-fixed-top">

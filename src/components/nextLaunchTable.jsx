@@ -4,7 +4,7 @@ const NextLaunchTable = ({ data }) => {
   console.log(`TCL>>>: nextLaunch -> data`, data);
   return (
     <>
-      <table className="table is-striped is-hoverable"></table>
+      <table className="table is-striped is-hoverable">next launch</table>
     </>
   );
 };
