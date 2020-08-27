@@ -1,8 +1,8 @@
 import React from "react";
 import NavBar from "../components/navBar";
-// import Bread from "../router/index";
 import AppRouter from "../router/index";
 import { SideBarRouter, TitleRouter } from "../router/index";
+import BreadCrumbs from "../components/breadCrumbs";
 
 const App = () => {
   return (
@@ -18,7 +18,9 @@ const App = () => {
         <div className="dashboard-main">
           <nav className="navbar is-fixed-top">
             <div className="navbar-brand">
-              <span className="navbar-item">{/* <Bread /> */}</span>
+              <span className="navbar-item">
+                <BreadCrumbs />
+              </span>
             </div>
           </nav>
           <section className="section">
